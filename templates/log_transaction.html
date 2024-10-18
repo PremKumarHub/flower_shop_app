@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Log Transaction</title>
+</head>
+<body>
+    <h1>Log Transaction</h1>
+    <form method="POST">
+        <input type="text" name="farmer_id" placeholder="Farmer ID" required>
+        <input type="number" name="amount" placeholder="Transaction Amount" required>
+        <input type="text" name="description" placeholder="Transaction Description" required>
+        <button type="submit">Log Transaction</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>

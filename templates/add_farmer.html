@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Add Farmer</title>
+</head>
+<body>
+    <h1>Add Farmer</h1>
+    <form method="POST">
+        <input type="text" name="farmer_id" placeholder="Farmer ID" required>
+        <input type="text" name="name" placeholder="Farmer Name" required>
+        <button type="submit">Add Farmer</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>

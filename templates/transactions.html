@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>View Transactions</title>
+</head>
+<body>
+    <h1>Transactions</h1>
+    <table>
+        <tr>
+            <th>Farmer ID</th>
+            <th>Farmer Name</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+        {% for trans in transactions %}
+        <tr>
+            <td>{{ trans.farmer_id }}</td>
+            <td>{{ trans['name'] }}</td>
+            <td>{{ trans['amount'] }}</td>
+            <td>{{ trans['description'] }}</td>
+            <td>{{ trans['date'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
