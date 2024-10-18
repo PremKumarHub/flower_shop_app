@@ -2,16 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Add Farmer</title>
 </head>
 <body>
-    <h1>Add Farmer</h1>
-    <form method="POST">
-        <input type="text" name="farmer_id" placeholder="Farmer ID" required>
-        <input type="text" name="name" placeholder="Farmer Name" required>
-        <button type="submit">Add Farmer</button>
-    </form>
-    <a href="{{ url_for('index') }}">Back</a>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Add Farmer</h1>
+        <form method="POST" action="/add_farmer" class="bg-light p-4 rounded shadow">
+            <div class="form-group">
+                <label for="farmerName">Farmer Name:</label>
+                <input type="text" id="farmerName" name="farmer_name" class="form-control" placeholder="Enter farmer's name" required>
+            </div>
+            <div class="form-group">
+                <label for="farmerId">Farmer ID:</label>
+                <input type="number" id="farmerId" name="farmer_id" class="form-control" placeholder="Enter farmer's ID" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Add Farmer</button>
+        </form>
+
+        <h2 class="mt-5">Farmers List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through farmers and display them here -->
+                {% for farmer in farmers %}
+                <tr>
+                    <td>{{ farmer.id }}</td>
+                    <td>{{ farmer.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+           <a href="{{ url_for('index') }}">Back</a>
+
+    </div>
 </body>
 </html>
